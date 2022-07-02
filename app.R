@@ -45,8 +45,10 @@ server <- function(input, output) {
             between(globalData$day, as.Date(input$beginDay), as.Date(input$endDay)), "day"]
         }
         plot_ly(source = "record", x = selectedDay,
-                y = globalData[globalData$day %in% selectedDay, "minute"], type = "scatter", mode = "line",
-                color = globalData[globalData$day %in% selectedDay, "content"], colors = c("blue", "red")) %>%
+                y = globalData[globalData$day %in% selectedDay, "minute"],
+                type = "scatter", mode = "line",
+                color = globalData[globalData$day %in% selectedDay, "content"],
+                colors = c("blue", "red")) %>%
             layout(title = "record", xaxis = list(title = "day"),
                    yaxis = list(title = "minute"))
     })
